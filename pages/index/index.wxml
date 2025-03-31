@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view class="container">
+  <image class="logo" src="/assets/icons/logo.png"></image>
+  <view class="title">{{motto}}</view>
+  <view class="loading">
+    <view class="loading-spinner" wx:if="{{!loadingCompleted}}"></view>
+    <view class="loading-text" wx:if="{{!loadingCompleted}}">加载中...</view>
+  </view>
+</view> 

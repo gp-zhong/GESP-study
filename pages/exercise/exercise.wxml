@@ -1,0 +1,66 @@
+<!--exercise.wxml-->
+<view class="container">
+  <!-- 搜索框 -->
+  <view class="search-box">
+    <icon type="search" size="16" color="#999"></icon>
+    <input 
+      class="search-input" 
+      placeholder="搜索习题" 
+      bindinput="onSearch" 
+      value="{{searchKeyword}}"
+    />
+    <icon wx:if="{{searchKeyword}}" type="clear" size="16" color="#999" bindtap="onClearSearch"></icon>
+  </view>
+  
+  <!-- 难度筛选 -->
+  <view class="section">
+    <view class="section-title">难度筛选</view>
+    <view class="tags-container">
+      <view 
+        class="tag {{activeFilters.difficulty === item ? 'active' : ''}}" 
+        wx:for="{{difficultyOptions}}" 
+        wx:key="*this" 
+        bindtap="setFilter" 
+        data-type="difficulty" 
+        data-value="{{item}}"
+      >{{item}}</view>
+    </view>
+  </view>
+  
+  <!-- 类型筛选 -->
+  <view class="section">
+    <view class="section-title">类型筛选</view>
+    <view class="tags-container">
+      <view 
+        class="tag {{activeFilters.type === item ? 'active' : ''}}" 
+        wx:for="{{typeOptions}}" 
+        wx:key="*this" 
+        bindtap="setFilter" 
+        data-type="type" 
+        data-value="{{item}}"
+      >{{item}}</view>
+    </view>
+  </view>
+  
+  <!-- 习题列表 -->
+  <view class="section">
+    <view class="exercise-list">
+      <view 
+        class="card exercise-item" 
+        wx:for="{{exerciseList}}" 
+        wx:key="id" 
+        bindtap="goToDetail" 
+        data-id="{{item.id}}"
+      >
+        <view class="exercise-header">
+          <view class="exercise-title">{{item.title}}</view>
+          <view class="difficulty-tag {{item.difficulty === '简单' ? 'easy' : item.difficulty === '中等' ? 'medium' : 'hard'}}">
+            {{item.difficulty}}
+          </view>
+        </view>
+        <view class="exercise-desc">{{item.desc}}</view>
+        <view class="exercise-type">{{item.type}}</view>
+      </view>
+    </view>
+  </view>
+</view> 

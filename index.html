@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCF-GESP学习助手</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <style>
+        .phone-container {
+            width: 390px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        
+        .app-preview {
+            width: 100%;
+            height: 844px;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .phone-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 40px;
+            pointer-events: none;
+            background-image: url('./assets/icons/iphone-frame.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+        
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .interfaces-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .interface-button {
+            background-color: #1E90FF;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-center font-bold text-2xl mb-4">CCF-GESP学习助手 - 高保真原型</h1>
+        <p class="text-center text-gray-600 mb-8">选择一个界面开始查看，或使用手机扫描二维码直接访问</p>
+        
+        <div class="phone-container">
+            <div class="app-preview">
+                <iframe id="preview-frame" src="views/knowledge.html"></iframe>
+                <div class="phone-frame"></div>
+                        </div>
+            
+            <div class="interfaces-grid mt-4">
+                <button class="interface-button" onclick="changeInterface('views/knowledge.html')">知识点</button>
+                <button class="interface-button" onclick="changeInterface('views/knowledge-detail.html')">知识点详情</button>
+                <button class="interface-button" onclick="changeInterface('views/exercises.html')">习题练习</button>
+                <button class="interface-button" onclick="changeInterface('views/exercise-detail.html')">习题详情</button>
+                <button class="interface-button" onclick="changeInterface('views/discussion.html')">问答讨论</button>
+                <button class="interface-button" onclick="changeInterface('views/discussion-detail.html')">问题详情</button>
+                <button class="interface-button" onclick="changeInterface('views/new-discussion.html')">新建问题</button>
+                <button class="interface-button" onclick="changeInterface('views/exam-papers.html')">GESP真题</button>
+                <button class="interface-button" onclick="changeInterface('views/exam-paper-detail.html')">真题详情</button>
+                <button class="interface-button" onclick="changeInterface('views/profile.html')">个人中心</button>
+                <button class="interface-button" onclick="changeInterface('views/api-settings.html')">API设置</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function changeInterface(url) {
+            document.getElementById('preview-frame').src = url;
+        }
+        
+        // 默认加载启动页后自动转到主页
+        window.onload = function() {
+            // 已在iframe中直接显示knowledge页面
+        }
+    </script>
+</body>
+</html> 

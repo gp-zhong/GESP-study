@@ -1,0 +1,91 @@
+{
+  "expo": {
+    "name": "CCF-GESP学习",
+    "slug": "gesp-study-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  },
+  "pages": [
+    "pages/index/index",
+    "pages/knowledge/knowledge",
+    "pages/knowledge/detail",
+    "pages/exercise/exercise",
+    "pages/exercise/detail",
+    "pages/discussion/discussion",
+    "pages/discussion/detail",
+    "pages/discussion/post",
+    "pages/exam/exam",
+    "pages/exam/detail",
+    "pages/profile/profile",
+    "pages/profile/settings"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4a90e2",
+    "navigationBarTitleText": "CCF-GESP学习助手",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#4a90e2",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/knowledge/knowledge",
+        "text": "知识点",
+        "iconPath": "assets/icons/knowledge.png",
+        "selectedIconPath": "assets/icons/knowledge-active.png"
+      },
+      {
+        "pagePath": "pages/exercise/exercise",
+        "text": "习题",
+        "iconPath": "assets/icons/exercise.png",
+        "selectedIconPath": "assets/icons/exercise-active.png"
+      },
+      {
+        "pagePath": "pages/discussion/discussion",
+        "text": "讨论",
+        "iconPath": "assets/icons/discussion.png",
+        "selectedIconPath": "assets/icons/discussion-active.png"
+      },
+      {
+        "pagePath": "pages/exam/exam",
+        "text": "真题",
+        "iconPath": "assets/icons/exam.png",
+        "selectedIconPath": "assets/icons/exam-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "assets/icons/profile.png",
+        "selectedIconPath": "assets/icons/profile-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {}
+} 

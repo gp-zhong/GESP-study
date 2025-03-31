@@ -1,0 +1,66 @@
+<!--discussion.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="section-title">问答讨论</view>
+    <view class="post-btn" bindtap="goToNewDiscussion">
+      <image class="add-icon" src="/assets/icons/add_discussion.png" mode="aspectFit"></image>
+    </view>
+  </view>
+  
+  <view class="tags-container">
+    <view 
+      class="tag {{activeTag === item ? 'active' : ''}}" 
+      wx:for="{{tags}}" 
+      wx:key="*this" 
+      bindtap="setActiveTag" 
+      data-tag="{{item}}"
+    >{{item}}</view>
+  </view>
+  
+  <view class="discussion-list">
+    <view 
+      class="card discussion-item" 
+      wx:for="{{discussionList}}" 
+      wx:key="id" 
+      bindtap="goToDetail" 
+      data-id="{{item.id}}"
+    >
+      <view class="discussion-header">
+        <image class="avatar" src="{{item.avatar || '/assets/icons/default_avatar.png'}}"></image>
+        <view class="user-info">
+          <view class="user-name">{{item.author}}</view>
+          <view class="post-time">{{item.time}}</view>
+        </view>
+      </view>
+      
+      <view class="discussion-title">{{item.title}}</view>
+      <view class="discussion-content">{{item.content}}</view>
+      
+      <image 
+        wx:if="{{item.image}}" 
+        class="discussion-image" 
+        src="{{item.image}}" 
+        mode="aspectFill"
+      ></image>
+      
+      <view class="discussion-footer">
+        <view class="answer-count">
+          <icon type="comment" size="14" color="#999"></icon>
+          <text>{{item.answerCount}}条回答</text>
+        </view>
+        <view class="actions">
+          <view class="action-item" catchtap="likePost" data-id="{{item.id}}">
+            <icon type="like" size="14" color="#999"></icon>
+          </view>
+          <view class="action-item" catchtap="sharePost" data-id="{{item.id}}">
+            <icon type="share" size="14" color="#999"></icon>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <view class="floating-btn" bindtap="goToAnswer" data-id="{{currentPostId}}">
+    <image class="answer-icon" src="/assets/icons/answer.png" mode="aspectFit"></image>
+  </view>
+</view> 

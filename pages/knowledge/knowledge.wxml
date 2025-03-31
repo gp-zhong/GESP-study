@@ -1,0 +1,47 @@
+<!--knowledge.wxml-->
+<view class="container">
+  <!-- 搜索框 -->
+  <view class="search-box">
+    <icon type="search" size="16" color="#999"></icon>
+    <input 
+      class="search-input" 
+      placeholder="搜索知识点" 
+      bindinput="onSearch" 
+      value="{{searchKeyword}}"
+    />
+    <icon wx:if="{{searchKeyword}}" type="clear" size="16" color="#999" bindtap="onClearSearch"></icon>
+  </view>
+  
+  <!-- 热门知识点 -->
+  <view class="section">
+    <view class="section-title">热门知识点</view>
+    <scroll-view class="popular-knowledge" scroll-x enable-flex>
+      <view class="popular-item" wx:for="{{popularKnowledge}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+        <image class="popular-icon" src="/assets/icons/{{item.icon}}.png" mode="aspectFit"></image>
+        <text class="popular-title">{{item.title}}</text>
+      </view>
+    </scroll-view>
+  </view>
+  
+  <!-- 全部知识点 -->
+  <view class="section">
+    <view class="section-title">全部知识点</view>
+    <view class="knowledge-list">
+      <view 
+        class="knowledge-item" 
+        wx:for="{{knowledgeList}}" 
+        wx:key="id" 
+        bindtap="goToDetail" 
+        data-id="{{item.id}}"
+      >
+        <view class="knowledge-content">
+          <text class="knowledge-title">{{item.title}}</text>
+          <text class="knowledge-desc">{{item.desc}}</text>
+        </view>
+        <view class="knowledge-more">
+          <image src="/assets/icons/arrow.png" mode="aspectFit"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

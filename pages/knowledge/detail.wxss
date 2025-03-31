@@ -1,0 +1,98 @@
+/* knowledge/detail.wxss */
+.container {
+  padding: 20rpx;
+  background-color: #f7f9fc;
+  min-height: 100vh;
+}
+
+.header {
+  margin-bottom: 30rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+.content {
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.description {
+  font-size: 30rpx;
+  color: #666666;
+  line-height: 1.5;
+  margin-bottom: 30rpx;
+}
+
+.section {
+  margin-bottom: 30rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 20rpx;
+}
+
+.item-list {
+  margin-left: 20rpx;
+}
+
+.item {
+  margin-bottom: 16rpx;
+}
+
+.item-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 6rpx;
+}
+
+.item-desc {
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.summary-card {
+  background-color: #f0f8ff;
+  border-left: 8rpx solid #4a90e2;
+  padding: 20rpx;
+  border-radius: 8rpx;
+  margin-bottom: 30rpx;
+}
+
+.summary-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 10rpx;
+}
+
+.summary-content {
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 1.5;
+}
+
+.action-buttons {
+  display: flex;
+  margin-top: 40rpx;
+}
+
+.action-btn {
+  flex: 1;
+  margin: 0 10rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  border-radius: 40rpx;
+  background-color: #4a90e2;
+  color: #ffffff;
+} 

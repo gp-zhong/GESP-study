@@ -1,0 +1,113 @@
+<view class="container">
+  <!-- 返回和收藏按钮 -->
+  <view class="action-bar">
+    <navigator open-type="navigateBack" class="back-btn">
+      <image src="/assets/icons/back.png" mode="aspectFit"></image>
+    </navigator>
+    <view class="favorite-btn" bindtap="toggleFavorite">
+      <image src="{{isFavorite ? '/assets/icons/star-filled.png' : '/assets/icons/star.png'}}" mode="aspectFit"></image>
+    </view>
+  </view>
+
+  <!-- 讨论主题内容 -->
+  <view class="discussion-container">
+    <view class="discussion-header">
+      <image class="avatar" src="{{discussion.authorAvatar}}" mode="aspectFill"></image>
+      <view class="user-info">
+        <view class="user-name">{{discussion.author}}</view>
+        <view class="post-time">{{discussion.postTime}}</view>
+      </view>
+    </view>
+
+    <view class="discussion-title">{{discussion.title}}</view>
+    <view class="discussion-content">{{discussion.content}}</view>
+    
+    <view class="discussion-images" wx:if="{{discussion.images.length > 0}}">
+      <image 
+        wx:for="{{discussion.images}}" 
+        wx:key="index" 
+        src="{{item}}" 
+        mode="aspectFill" 
+        class="discussion-image" 
+        bindtap="previewImage" 
+        data-index="{{index}}">
+      </image>
+    </view>
+
+    <view class="discussion-tags">
+      <view class="tag" wx:for="{{discussion.tags}}" wx:key="index">{{item}}</view>
+    </view>
+
+    <view class="discussion-stats">
+      <view class="stat-item">
+        <image src="/assets/icons/view.png" mode="aspectFit"></image>
+        <text>{{discussion.views}}</text>
+      </view>
+      <view class="stat-item">
+        <image src="/assets/icons/comment.png" mode="aspectFit"></image>
+        <text>{{discussion.commentCount}}</text>
+      </view>
+      <view class="stat-item" bindtap="likeDiscussion">
+        <image src="{{isLiked ? '/assets/icons/like-filled.png' : '/assets/icons/like.png'}}" mode="aspectFit"></image>
+        <text>{{discussion.likes}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 回答列表 -->
+  <view class="answers-section">
+    <view class="section-title">回答 ({{answers.length}})</view>
+    
+    <view class="answers-list">
+      <block wx:if="{{answers.length > 0}}">
+        <view class="answer-item" wx:for="{{answers}}" wx:key="id">
+          <view class="answer-header">
+            <image class="avatar" src="{{item.authorAvatar}}" mode="aspectFill"></image>
+            <view class="user-info">
+              <view class="user-name">{{item.author}}</view>
+              <view class="post-time">{{item.postTime}}</view>
+            </view>
+          </view>
+          
+          <view class="answer-content">{{item.content}}</view>
+          
+          <view class="answer-images" wx:if="{{item.images.length > 0}}">
+            <image 
+              wx:for="{{item.images}}" 
+              wx:for-item="img" 
+              wx:key="index" 
+              src="{{img}}" 
+              mode="aspectFill" 
+              class="answer-image" 
+              bindtap="previewAnswerImage" 
+              data-answer-index="{{index}}" 
+              data-image-index="{{index}}">
+            </image>
+          </view>
+          
+          <view class="answer-actions">
+            <view class="action-btn" bindtap="likeAnswer" data-index="{{index}}">
+              <image src="{{item.isLiked ? '/assets/icons/like-filled.png' : '/assets/icons/like.png'}}" mode="aspectFit"></image>
+              <text>{{item.likes}}</text>
+            </view>
+            <view class="action-btn" bindtap="replyToAnswer" data-index="{{index}}">
+              <image src="/assets/icons/reply.png" mode="aspectFit"></image>
+              <text>回复</text>
+            </view>
+          </view>
+        </view>
+      </block>
+      
+      <view class="no-answers" wx:else>
+        <image src="/assets/icons/no-data.png" mode="aspectFit"></image>
+        <text>暂无回答，快来抢沙发吧！</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 回答输入框 -->
+  <view class="input-section">
+    <input class="input-field" placeholder="写下你的回答..." bindtap="showAnswerEditor" disabled="{{true}}"/>
+    <view class="submit-btn" bindtap="showAnswerEditor">回答</view>
+  </view>
+</view> 

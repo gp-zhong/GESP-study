@@ -1,0 +1,120 @@
+<view class="container">
+  <view class="header">
+    <view class="back-btn" bindtap="navigateBack">
+      <image src="/assets/icons/back.png" mode="aspectFit"></image>
+    </view>
+    <view class="header-title">{{replyTo ? '回复 ' + replyTo : '写回答'}}</view>
+    <view class="submit-btn" bindtap="submitAnswer">提交</view>
+  </view>
+
+  <view class="discussion-info" wx:if="{{discussion}}">
+    <view class="discussion-title">{{discussion.title}}</view>
+    <view class="discussion-content">{{discussion.content}}</view>
+  </view>
+
+  <view class="editor-container">
+    <textarea 
+      class="answer-editor" 
+      placeholder="{{replyTo ? '回复 ' + replyTo + '...' : '写下你的回答...'}}" 
+      bindinput="onContentChange" 
+      value="{{content}}"
+      maxlength="2000"
+      auto-height="{{true}}"
+      focus="{{true}}"
+      show-confirm-bar="{{false}}"
+    ></textarea>
+    
+    <view class="word-count">{{content.length}}/2000</view>
+    
+    <view class="images-container" wx:if="{{tempImages.length > 0}}">
+      <view class="image-item" wx:for="{{tempImages}}" wx:key="index">
+        <image src="{{item}}" mode="aspectFill" class="uploaded-image" bindtap="previewImage" data-index="{{index}}"></image>
+        <view class="delete-image" bindtap="removeImage" data-index="{{index}}">
+          <image src="/assets/icons/delete.png" mode="aspectFit"></image>
+        </view>
+      </view>
+    </view>
+    
+    <view class="toolbar">
+      <view class="tool-item" bindtap="chooseImage">
+        <image src="/assets/icons/image.png" mode="aspectFit"></image>
+      </view>
+      <view class="tool-item" bindtap="insertFormula">
+        <image src="/assets/icons/formula.png" mode="aspectFit"></image>
+      </view>
+      <view class="tool-item" bindtap="insertCode">
+        <image src="/assets/icons/code.png" mode="aspectFit"></image>
+      </view>
+      <view class="tool-item" bindtap="askAI">
+        <image src="/assets/icons/ai.png" mode="aspectFit"></image>
+      </view>
+    </view>
+  </view>
+  
+  <!-- AI辅助弹窗 -->
+  <view class="ai-modal" wx:if="{{showAIModal}}">
+    <view class="ai-modal-mask" bindtap="closeAIModal"></view>
+    <view class="ai-modal-content">
+      <view class="ai-modal-header">
+        <view class="ai-modal-title">AI辅助</view>
+        <view class="ai-modal-close" bindtap="closeAIModal">
+          <image src="/assets/icons/close.png" mode="aspectFit"></image>
+        </view>
+      </view>
+      
+      <input 
+        class="ai-prompt-input" 
+        placeholder="输入你想要AI帮助的内容..." 
+        bindinput="onAIPromptChange" 
+        value="{{aiPrompt}}"
+        focus="{{showAIModal}}"
+      />
+      
+      <view class="ai-suggestion-list">
+        <view class="ai-suggestion-item" bindtap="useAISuggestion" data-prompt="帮我优化这个回答的表达">
+          <image src="/assets/icons/optimize.png" mode="aspectFit"></image>
+          <text>优化表达</text>
+        </view>
+        <view class="ai-suggestion-item" bindtap="useAISuggestion" data-prompt="给我提供更多相关知识点">
+          <image src="/assets/icons/knowledge.png" mode="aspectFit"></image>
+          <text>拓展知识</text>
+        </view>
+        <view class="ai-suggestion-item" bindtap="useAISuggestion" data-prompt="检查我的答案是否正确">
+          <image src="/assets/icons/check.png" mode="aspectFit"></image>
+          <text>检查正确性</text>
+        </view>
+      </view>
+      
+      <view class="ai-submit-btn" bindtap="submitAIPrompt">获取AI帮助</view>
+    </view>
+  </view>
+  
+  <!-- 公式编辑弹窗 -->
+  <view class="formula-modal" wx:if="{{showFormulaModal}}">
+    <view class="formula-modal-mask" bindtap="closeFormulaModal"></view>
+    <view class="formula-modal-content">
+      <view class="formula-modal-header">
+        <view class="formula-modal-title">插入公式</view>
+        <view class="formula-modal-close" bindtap="closeFormulaModal">
+          <image src="/assets/icons/close.png" mode="aspectFit"></image>
+        </view>
+      </view>
+      
+      <textarea 
+        class="formula-editor" 
+        placeholder="输入LaTeX格式的公式..." 
+        bindinput="onFormulaChange" 
+        value="{{formulaContent}}"
+        focus="{{showFormulaModal}}"
+      ></textarea>
+      
+      <view class="formula-preview">
+        <view class="preview-title">预览：</view>
+        <image wx:if="{{formulaPreviewUrl}}" src="{{formulaPreviewUrl}}" mode="widthFix" class="formula-preview-image"></image>
+        <view class="no-preview" wx:else>公式预览将显示在这里</view>
+      </view>
+      
+      <view class="formula-submit-btn" bindtap="insertFormulaContent">插入</view>
+    </view>
+  </view>
+</view> 

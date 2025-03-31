@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>问题详情 - CCF-GESP学习助手</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="prototype-container">
+        <div class="device-frame">
+            <div class="status-bar">
+                <div class="time">20:30</div>
+                <div class="notch"></div>
+                <div class="icons">
+                    <i class="fas fa-signal"></i>
+                    <i class="fas fa-wifi"></i>
+                    <i class="fas fa-battery-full"></i>
+                </div>
+            </div>
+            
+            <div class="app-content">
+                <div class="detail-header">
+                    <a href="discussion.html" class="back-button">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <div class="detail-title">问题详情</div>
+                </div>
+                
+                <div class="detail-content">
+                    <div class="discussion-item border-b pb-4 mb-4">
+                        <div class="user-info">
+                            <div class="avatar">
+                                <img src="../assets/icons/user_avatar.png" alt="用户头像" onerror="this.src='../assets/icons/default_avatar.png'">
+                            </div>
+                            <div>
+                                <div class="user-name">王小明</div>
+                                <div class="post-time">2小时前</div>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            动态规划的状态转移方程如何推导？我理解基本概念，但在实际应用时总是遇到困难。
+                        </div>
+                        <div class="post-image mb-3">
+                            <img src="../assets/icons/question_image.png" alt="问题图片" onerror="this.src='../assets/icons/default_image.png'">
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <div class="flex items-center mr-4">
+                                <i class="far fa-thumbs-up mr-1"></i>
+                                <span>12</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="far fa-comment mr-1"></i>
+                                <span>2条回答</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="font-bold text-lg mb-3">回答 (2)</h3>
+                    
+                    <div class="bg-white rounded-lg p-4 mb-4 shadow-sm">
+                        <div class="user-info">
+                            <div class="avatar">
+                                <img src="../assets/icons/expert_avatar.png" alt="教授头像">
+                            </div>
+                            <div>
+                                <div class="flex items-center">
+                                    <div class="user-name">李教授</div>
+                                    <div class="expert-badge">专家</div>
+                                </div>
+                                <div class="post-time">1小时前</div>
+                            </div>
+                        </div>
+                        <div class="post-content mt-3">
+                            动态规划的状态转移方程是根据问题的性质来推导的。通常我们需要先确定状态的定义，然后思考如何由已知的状态推导出新的状态。
+                            <br><br>
+                            以最经典的斐波那契数列为例，我们定义状态dp[i]为第i个斐波那契数，则状态转移方程为dp[i] = dp[i-1] + dp[i-2]。
+                            <br><br>
+                            推导状态转移方程的关键在于找到子问题之间的关系，这需要对问题进行深入分析和理解。建议从简单的问题开始练习，逐渐提高难度。
+                        </div>
+                        <div class="flex justify-end mt-2 text-gray-500 text-sm">
+                            <div class="flex items-center">
+                                <i class="far fa-thumbs-up mr-1"></i>
+                                <span>8</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg p-4 mb-4 shadow-sm">
+                        <div class="user-info">
+                            <div class="avatar">
+                                <img src="../assets/icons/student_avatar.png" alt="用户头像">
+                            </div>
+                            <div>
+                                <div class="user-name">张同学</div>
+                                <div class="post-time">30分钟前</div>
+                            </div>
+                        </div>
+                        <div class="post-content mt-3">
+                            我也有这个疑问。我发现对于初学者来说，一个好的方法是尝试手动推导几个简单实例，从中找出规律。
+                            <br><br>
+                            比如对于"最长递增子序列"问题，我们可以先手动找出几个小数组的答案，然后思考每次添加新元素时，如何利用已有的结果。
+                        </div>
+                        <div class="flex justify-end mt-2 text-gray-500 text-sm">
+                            <div class="flex items-center">
+                                <i class="far fa-thumbs-up mr-1"></i>
+                                <span>3</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg p-4 mb-4">
+                        <textarea class="w-full p-3 border border-gray-300 rounded-lg" rows="4" placeholder="写下你的回答..."></textarea>
+                        <div class="flex justify-between mt-2">
+                            <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg flex items-center">
+                                <i class="fas fa-camera mr-2"></i>
+                                <span>添加图片</span>
+                            </button>
+                            <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">发布回答</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bottom-tab-bar">
+                <a href="knowledge.html" class="tab-item">
+                    <i class="fas fa-book"></i>
+                    <span>知识点</span>
+                </a>
+                <a href="exercises.html" class="tab-item">
+                    <i class="fas fa-tasks"></i>
+                    <span>习题</span>
+                </a>
+                <a href="discussion.html" class="tab-item active">
+                    <i class="fas fa-comments"></i>
+                    <span>讨论</span>
+                </a>
+                <a href="exam-papers.html" class="tab-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span>真题</span>
+                </a>
+                <a href="profile.html" class="tab-item">
+                    <i class="fas fa-user"></i>
+                    <span>我的</span>
+                </a>
+            </div>
+            
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+</body>
+</html> 

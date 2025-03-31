@@ -1,0 +1,179 @@
+<view class="container">
+  <view class="header">
+    <view class="back-btn" bindtap="navigateBack">
+      <image src="/assets/icons/back.png" mode="aspectFit"></image>
+    </view>
+    <view class="header-title">发布讨论</view>
+    <view class="submit-btn" bindtap="submitPost">发布</view>
+  </view>
+
+  <view class="post-container">
+    <!-- 标题输入 -->
+    <input 
+      class="post-title" 
+      placeholder="标题（必填）" 
+      bindinput="onTitleChange" 
+      value="{{title}}"
+      maxlength="50"
+    />
+    <view class="title-count">{{title.length}}/50</view>
+
+    <!-- 内容输入 -->
+    <textarea 
+      class="post-content" 
+      placeholder="分享你的问题或者见解（必填）..." 
+      bindinput="onContentChange" 
+      value="{{content}}"
+      maxlength="2000"
+      auto-height="{{true}}"
+      show-confirm-bar="{{false}}"
+    ></textarea>
+    <view class="content-count">{{content.length}}/2000</view>
+    
+    <!-- 图片上传区 -->
+    <view class="images-container" wx:if="{{tempImages.length > 0}}">
+      <view class="image-item" wx:for="{{tempImages}}" wx:key="index">
+        <image src="{{item}}" mode="aspectFill" class="uploaded-image" bindtap="previewImage" data-index="{{index}}"></image>
+        <view class="delete-image" bindtap="removeImage" data-index="{{index}}">
+          <image src="/assets/icons/delete.png" mode="aspectFit"></image>
+        </view>
+      </view>
+    </view>
+
+    <!-- 工具栏 -->
+    <view class="toolbar">
+      <view class="tool-item" bindtap="chooseImage">
+        <image src="/assets/icons/image.png" mode="aspectFit"></image>
+      </view>
+      <view class="tool-item" bindtap="insertFormula">
+        <image src="/assets/icons/formula.png" mode="aspectFit"></image>
+      </view>
+      <view class="tool-item" bindtap="insertCode">
+        <image src="/assets/icons/code.png" mode="aspectFit"></image>
+      </view>
+      <view class="tool-item" bindtap="askAI">
+        <image src="/assets/icons/ai.png" mode="aspectFit"></image>
+      </view>
+    </view>
+
+    <!-- 标签选择区 -->
+    <view class="tag-section">
+      <view class="section-title">添加标签</view>
+      <view class="tag-container">
+        <view 
+          class="tag-item {{selectedTags.includes(item) ? 'selected' : ''}}" 
+          wx:for="{{availableTags}}" 
+          wx:key="index"
+          bindtap="toggleTag"
+          data-tag="{{item}}"
+        >
+          {{item}}
+        </view>
+        <view class="tag-item add-tag" bindtap="showAddTagModal">
+          <image src="/assets/icons/add.png" mode="aspectFit"></image>
+          <text>添加标签</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 匿名选项 -->
+    <view class="anonymous-section">
+      <view class="section-title">匿名发布</view>
+      <switch checked="{{isAnonymous}}" bindchange="toggleAnonymous" color="var(--primary-color)"/>
+      <text class="anonymous-tip">开启后，你的个人信息将不会显示给其他用户</text>
+    </view>
+  </view>
+
+  <!-- AI辅助弹窗 -->
+  <view class="ai-modal" wx:if="{{showAIModal}}">
+    <view class="ai-modal-mask" bindtap="closeAIModal"></view>
+    <view class="ai-modal-content">
+      <view class="ai-modal-header">
+        <view class="ai-modal-title">AI辅助</view>
+        <view class="ai-modal-close" bindtap="closeAIModal">
+          <image src="/assets/icons/close.png" mode="aspectFit"></image>
+        </view>
+      </view>
+      
+      <input 
+        class="ai-prompt-input" 
+        placeholder="输入你想要AI帮助的内容..." 
+        bindinput="onAIPromptChange" 
+        value="{{aiPrompt}}"
+        focus="{{showAIModal}}"
+      />
+      
+      <view class="ai-suggestion-list">
+        <view class="ai-suggestion-item" bindtap="useAISuggestion" data-prompt="帮我改进标题">
+          <image src="/assets/icons/title.png" mode="aspectFit"></image>
+          <text>改进标题</text>
+        </view>
+        <view class="ai-suggestion-item" bindtap="useAISuggestion" data-prompt="帮我优化问题描述">
+          <image src="/assets/icons/optimize.png" mode="aspectFit"></image>
+          <text>优化描述</text>
+        </view>
+        <view class="ai-suggestion-item" bindtap="useAISuggestion" data-prompt="检查我的语法错误">
+          <image src="/assets/icons/check.png" mode="aspectFit"></image>
+          <text>语法检查</text>
+        </view>
+      </view>
+      
+      <view class="ai-submit-btn" bindtap="submitAIPrompt">获取AI帮助</view>
+    </view>
+  </view>
+  
+  <!-- 公式编辑弹窗 -->
+  <view class="formula-modal" wx:if="{{showFormulaModal}}">
+    <view class="formula-modal-mask" bindtap="closeFormulaModal"></view>
+    <view class="formula-modal-content">
+      <view class="formula-modal-header">
+        <view class="formula-modal-title">插入公式</view>
+        <view class="formula-modal-close" bindtap="closeFormulaModal">
+          <image src="/assets/icons/close.png" mode="aspectFit"></image>
+        </view>
+      </view>
+      
+      <textarea 
+        class="formula-editor" 
+        placeholder="输入LaTeX格式的公式..." 
+        bindinput="onFormulaChange" 
+        value="{{formulaContent}}"
+        focus="{{showFormulaModal}}"
+      ></textarea>
+      
+      <view class="formula-preview">
+        <view class="preview-title">预览：</view>
+        <image wx:if="{{formulaPreviewUrl}}" src="{{formulaPreviewUrl}}" mode="widthFix" class="formula-preview-image"></image>
+        <view class="no-preview" wx:else>公式预览将显示在这里</view>
+      </view>
+      
+      <view class="formula-submit-btn" bindtap="insertFormulaContent">插入</view>
+    </view>
+  </view>
+  
+  <!-- 添加标签弹窗 -->
+  <view class="tag-modal" wx:if="{{showTagModal}}">
+    <view class="tag-modal-mask" bindtap="closeTagModal"></view>
+    <view class="tag-modal-content">
+      <view class="tag-modal-header">
+        <view class="tag-modal-title">添加标签</view>
+        <view class="tag-modal-close" bindtap="closeTagModal">
+          <image src="/assets/icons/close.png" mode="aspectFit"></image>
+        </view>
+      </view>
+      
+      <input 
+        class="tag-input" 
+        placeholder="输入标签名称..." 
+        bindinput="onNewTagChange" 
+        value="{{newTag}}"
+        maxlength="10"
+        focus="{{showTagModal}}"
+      />
+      
+      <view class="tag-limit-tip">标签最多10个字符</view>
+      
+      <view class="tag-submit-btn" bindtap="addNewTag">添加</view>
+    </view>
+  </view>
+</view> 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>CCF-GESP学习 - 高保真原型</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="high-fidelity-styles.css">
+</head>
+<body>
+    <div class="device-container">
+        <div class="device-notch"></div>
+        <div class="status-bar">
+            <div class="time">9:41</div>
+            <div class="icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+        
+        <div class="app-content">
+            <!-- Screens will be injected here by JavaScript -->
+        </div>
+        
+        <div class="tab-bar">
+            <div class="tab-item active" data-screen="knowledge">
+                <i class="fas fa-book"></i>
+                <span>知识点</span>
+            </div>
+            <div class="tab-item" data-screen="exercise">
+                <i class="fas fa-code"></i>
+                <span>习题</span>
+            </div>
+            <div class="tab-item" data-screen="discussion">
+                <i class="fas fa-comments"></i>
+                <span>讨论</span>
+            </div>
+            <div class="tab-item" data-screen="exam">
+                <i class="fas fa-file-alt"></i>
+                <span>真题</span>
+            </div>
+            <div class="tab-item" data-screen="profile">
+                <i class="fas fa-user"></i>
+                <span>我的</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="high-fidelity-script.js"></script>
+</body>
+</html> 
