@@ -1,0 +1,145 @@
+/**app.wxss**/
+/* 全局样式 */
+page {
+  --primary-color: #4a90e2;
+  --secondary-color: #50c878;
+  --accent-color: #ffd700;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --background: #F8F9FA;
+  --card-background: #FFFFFF;
+  --border-color: #EEEEEE;
+  
+  /* 知识点分类颜色 */
+  --color-data-structure: #1E90FF;
+  --color-algorithm: #8FBC8F;
+  --color-programming: #FFD700;
+  --color-os: #FF7F50;
+  
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background-color: var(--background);
+}
+
+/* 通用容器 */
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+/* 标题样式 */
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+/* 卡片样式 */
+.card {
+  background-color: var(--card-background);
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  margin-bottom: 20rpx;
+  padding: 30rpx;
+}
+
+/* 按钮样式 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 30rpx;
+  height: 80rpx;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2rpx solid var(--primary-color);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+}
+
+/* 标签样式 */
+.tag {
+  display: inline-block;
+  padding: 6rpx 20rpx;
+  background-color: #f0f3f8;
+  color: var(--text-secondary);
+  border-radius: 24rpx;
+  font-size: 24rpx;
+  margin-right: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.tag.active {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+/* 搜索框样式 */
+.search-box {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 24rpx;
+  background-color: var(--card-background);
+  border-radius: 40rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  font-size: 28rpx;
+  margin: 0 16rpx;
+}
+
+/* 列表项样式 */
+.list-item {
+  display: flex;
+  padding: 24rpx 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+/* 难度标签 */
+.difficulty-tag {
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+  font-size: 22rpx;
+  color: #ffffff;
+}
+
+.difficulty-tag.easy {
+  background-color: #52c41a;
+}
+
+.difficulty-tag.medium {
+  background-color: #faad14;
+}
+
+.difficulty-tag.hard {
+  background-color: #f5222d;
+} 
