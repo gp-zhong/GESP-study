@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心 - CCF-GESP学习助手</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="prototype-container">
+        <div class="device-frame">
+            <div class="status-bar">
+                <div class="time">20:30</div>
+                <div class="notch"></div>
+                <div class="icons">
+                    <i class="fas fa-signal"></i>
+                    <i class="fas fa-wifi"></i>
+                    <i class="fas fa-battery-full"></i>
+                </div>
+            </div>
+            
+            <div class="app-content">
+                <div class="page-header px-4 py-3">
+                    <h1 class="text-xl font-bold">我的</h1>
+                </div>
+                
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <img src="../assets/icons/default_avatar.png" alt="用户头像">
+                    </div>
+                    <div class="profile-name">小明同学</div>
+                    <div class="text-gray-500 text-sm">学习ing...</div>
+                </div>
+                
+                <div class="menu-section">
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <i class="fas fa-star"></i>
+                            <span>我的收藏</span>
+                        </div>
+                        <div class="menu-item-right">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <i class="fas fa-history"></i>
+                            <span>学习记录</span>
+                        </div>
+                        <div class="menu-item-right">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span>错题本</span>
+                        </div>
+                        <div class="menu-item-right">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="px-4 py-2">
+                    <h3 class="text-gray-500 text-sm">DeepSeek API 设置</h3>
+                </div>
+                
+                <div class="menu-section">
+                    <a href="api-settings.html" class="menu-item block">
+                        <div class="menu-item-left">
+                            <i class="fas fa-key text-blue-500"></i>
+                            <span>API KEY 设置</span>
+                        </div>
+                        <div class="menu-item-right">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </a>
+                    <a href="api-settings.html" class="menu-item block">
+                        <div class="menu-item-left">
+                            <i class="fas fa-server text-blue-500"></i>
+                            <span>API 端点设置</span>
+                        </div>
+                        <div class="menu-item-right">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </a>
+                    <a href="api-settings.html" class="menu-item block">
+                        <div class="menu-item-left">
+                            <i class="fas fa-robot text-blue-500"></i>
+                            <span>API 模型选择</span>
+                        </div>
+                        <div class="menu-item-right">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="menu-section mt-4">
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <i class="fas fa-cog text-gray-500"></i>
+                            <span>设置</span>
+                        </div>
+                        <div class="menu-item-right">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <i class="fas fa-question-circle text-gray-500"></i>
+                            <span>帮助与反馈</span>
+                        </div>
+                        <div class="menu-item-right">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-left">
+                            <i class="fas fa-info-circle text-gray-500"></i>
+                            <span>关于我们</span>
+                        </div>
+                        <div class="menu-item-right">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bottom-tab-bar">
+                <a href="knowledge.html" class="tab-item">
+                    <i class="fas fa-book"></i>
+                    <span>知识点</span>
+                </a>
+                <a href="exercises.html" class="tab-item">
+                    <i class="fas fa-tasks"></i>
+                    <span>习题</span>
+                </a>
+                <a href="discussion.html" class="tab-item">
+                    <i class="fas fa-comments"></i>
+                    <span>讨论</span>
+                </a>
+                <a href="exam-papers.html" class="tab-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span>真题</span>
+                </a>
+                <a href="profile.html" class="tab-item active">
+                    <i class="fas fa-user"></i>
+                    <span>我的</span>
+                </a>
+            </div>
+            
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+</body>
+</html> 
