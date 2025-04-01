@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知识点 - CCF-GESP学习助手</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="prototype-container">
+        <div class="device-frame">
+            <div class="status-bar">
+                <div class="time">20:30</div>
+                <div class="notch"></div>
+                <div class="icons">
+                    <i class="fas fa-signal"></i>
+                    <i class="fas fa-wifi"></i>
+                    <i class="fas fa-battery-full"></i>
+                </div>
+            </div>
+            
+            <div class="app-content">
+                <div class="page-header px-4 py-3">
+                    <h1 class="text-xl font-bold">知识点预习</h1>
+                </div>
+                
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="搜索知识点">
+                </div>
+                
+                <h2 class="section-title">热门知识点</h2>
+                <div class="knowledge-cards">
+                    <div class="knowledge-card" style="background-color: #1E90FF;">
+                        <span>数据结构</span>
+                    </div>
+                    <div class="knowledge-card" style="background-color: #8FBC8F;">
+                        <span>算法</span>
+                    </div>
+                    <div class="knowledge-card" style="background-color: #FFD700;">
+                        <span>编程基础</span>
+                    </div>
+                    <div class="knowledge-card" style="background-color: #FF7F50;">
+                        <span>操作系统</span>
+                    </div>
+                </div>
+                
+                <h2 class="section-title">全部知识点</h2>
+                <div class="knowledge-list">
+                    <a href="knowledge-detail.html" class="knowledge-item">
+                        <h3>数据结构基础</h3>
+                        <p>包括数组、链表、栈、队列等基本数据结构</p>
+                    </a>
+                    <div class="knowledge-item">
+                        <h3>算法设计与分析</h3>
+                        <p>包括排序算法、搜索算法、动态规划等</p>
+                    </div>
+                    <div class="knowledge-item">
+                        <h3>程序设计基础</h3>
+                        <p>包括变量、表达式、控制流、函数等</p>
+                    </div>
+                    <div class="knowledge-item">
+                        <h3>操作系统概念</h3>
+                        <p>包括进程、线程、内存管理、文件系统等</p>
+                    </div>
+                    <div class="knowledge-item">
+                        <h3>计算机网络</h3>
+                        <p>包括网络协议、网络架构、网络安全等</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bottom-tab-bar">
+                <a href="knowledge.html" class="tab-item active">
+                    <i class="fas fa-book"></i>
+                    <span>知识点</span>
+                </a>
+                <a href="exercises.html" class="tab-item">
+                    <i class="fas fa-tasks"></i>
+                    <span>习题</span>
+                </a>
+                <a href="discussion.html" class="tab-item">
+                    <i class="fas fa-comments"></i>
+                    <span>讨论</span>
+                </a>
+                <a href="exam-papers.html" class="tab-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span>真题</span>
+                </a>
+                <a href="profile.html" class="tab-item">
+                    <i class="fas fa-user"></i>
+                    <span>我的</span>
+                </a>
+            </div>
+            
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+</body>
+</html> 

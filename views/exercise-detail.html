@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>习题详情 - CCF-GESP学习助手</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="prototype-container">
+        <div class="device-frame">
+            <div class="status-bar">
+                <div class="time">20:30</div>
+                <div class="notch"></div>
+                <div class="icons">
+                    <i class="fas fa-signal"></i>
+                    <i class="fas fa-wifi"></i>
+                    <i class="fas fa-battery-full"></i>
+                </div>
+            </div>
+            
+            <div class="app-content">
+                <div class="detail-header">
+                    <a href="exercises.html" class="back-button">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <div class="detail-title">两数之和</div>
+                </div>
+                
+                <div class="detail-content">
+                    <div class="difficulty easy inline-block">简单</div>
+                    
+                    <h3 class="font-bold text-lg mt-4 mb-2">题目描述</h3>
+                    <p>给定一个整数数组nums和一个目标值target，请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。</p>
+                    
+                    <h3 class="font-bold text-lg mt-4 mb-2">示例</h3>
+                    <div class="bg-gray-100 p-3 rounded-lg mb-4">
+                        <p><strong>输入：</strong>nums = [2, 7, 11, 15], target = 9</p>
+                        <p><strong>输出：</strong>[0, 1]</p>
+                        <p><strong>解释：</strong>因为 nums[0] + nums[1] = 2 + 7 = 9，所以返回 [0, 1]。</p>
+                    </div>
+                    
+                    <h3 class="font-bold text-lg mt-4 mb-2">提示</h3>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li class="mb-1">2 ≤ nums.length ≤ 104</li>
+                        <li class="mb-1">-109 ≤ nums[i] ≤ 109</li>
+                        <li class="mb-1">-109 ≤ target ≤ 109</li>
+                        <li class="mb-1">只会存在一个有效答案</li>
+                    </ul>
+                    
+                    <h3 class="font-bold text-lg mt-4 mb-2">你的解答</h3>
+                    <div class="code-editor">
+                        <pre>
+function twoSum(nums, target) {
+    // 在这里编写你的代码
+    
+}
+                        </pre>
+                    </div>
+                    
+                    <button class="action-button w-full mt-4">提交解答</button>
+                    
+                    <div class="ai-analysis mt-6">
+                        <div class="ai-analysis-header">
+                            <div class="flex items-center">
+                                <i class="fas fa-robot mr-2 text-blue-500"></i>
+                                <span class="font-bold">DeepSeek解析</span>
+                            </div>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="ai-analysis-content">
+                            <h4 class="font-bold mt-3 mb-2">解题思路</h4>
+                            <p>本题可以使用哈希表来解决，通过一次遍历数组，将每个元素及其索引存入哈希表中，同时检查当前元素的补数是否已经在哈希表中。</p>
+                            
+                            <h4 class="font-bold mt-3 mb-2">参考代码</h4>
+                            <div class="bg-gray-800 text-white p-3 rounded-lg">
+                                <pre>
+function twoSum(nums, target) {
+    const map = new Map();
+    for (let i = 0; i < nums.length; i++) {
+        const complement = target - nums[i];
+        if (map.has(complement)) {
+            return [map.get(complement), i];
+        }
+        map.set(nums[i], i);
+    }
+    return [];
+}
+                                </pre>
+                            </div>
+                            
+                            <h4 class="font-bold mt-3 mb-2">复杂度分析</h4>
+                            <p>- 时间复杂度：O(n)，只需遍历一次数组。</p>
+                            <p>- 空间复杂度：O(n)，需要一个哈希表来存储数组元素及其索引。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bottom-tab-bar">
+                <a href="knowledge.html" class="tab-item">
+                    <i class="fas fa-book"></i>
+                    <span>知识点</span>
+                </a>
+                <a href="exercises.html" class="tab-item active">
+                    <i class="fas fa-tasks"></i>
+                    <span>习题</span>
+                </a>
+                <a href="discussion.html" class="tab-item">
+                    <i class="fas fa-comments"></i>
+                    <span>讨论</span>
+                </a>
+                <a href="exam-papers.html" class="tab-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span>真题</span>
+                </a>
+                <a href="profile.html" class="tab-item">
+                    <i class="fas fa-user"></i>
+                    <span>我的</span>
+                </a>
+            </div>
+            
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+    
+    <script>
+        // 展开/收起 AI 解析
+        const aiAnalysisHeader = document.querySelector('.ai-analysis-header');
+        aiAnalysisHeader.addEventListener('click', function() {
+            const aiAnalysis = document.querySelector('.ai-analysis');
+            aiAnalysis.classList.toggle('expanded');
+            const icon = this.querySelector('i.fas.fa-chevron-down');
+            if (aiAnalysis.classList.contains('expanded')) {
+                icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+            } else {
+                icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+            }
+        });
+    </script>
+</body>
+</html> 

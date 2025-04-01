@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API 设置 - CCF-GESP学习助手</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="prototype-container">
+        <div class="device-frame">
+            <div class="status-bar">
+                <div class="time">20:30</div>
+                <div class="notch"></div>
+                <div class="icons">
+                    <i class="fas fa-signal"></i>
+                    <i class="fas fa-wifi"></i>
+                    <i class="fas fa-battery-full"></i>
+                </div>
+            </div>
+            
+            <div class="app-content">
+                <div class="detail-header">
+                    <a href="profile.html" class="back-button">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <div class="detail-title">API 设置</div>
+                </div>
+                
+                <div class="detail-content">
+                    <div class="form-group">
+                        <label for="api-key">API KEY</label>
+                        <input type="password" id="api-key" value="****************************************" class="form-control" placeholder="请输入 DeepSeek API KEY">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="api-endpoint">API 端点</label>
+                        <input type="text" id="api-endpoint" value="https://api.deepseek.com/v1" class="form-control" placeholder="请输入 API 端点">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="api-model">API 模型</label>
+                        <select id="api-model" class="form-control">
+                            <option value="deepseek-chat">DeepSeek Chat</option>
+                            <option value="deepseek-coder">DeepSeek Coder</option>
+                            <option value="deepseek-llm">DeepSeek LLM</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="temperature">温度 (Temperature)</label>
+                        <div class="flex items-center">
+                            <input type="range" id="temperature" min="0" max="1" step="0.1" value="0.7" class="w-full mr-2">
+                            <span id="temperature-value">0.7</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">较低的值使输出更确定，较高的值使输出更随机</p>
+                    </div>
+                    
+                    <button class="submit-button">保存设置</button>
+                    
+                    <div class="note mt-4">
+                        <i class="fas fa-exclamation-triangle text-yellow-500 mr-1"></i>
+                        <span>注意：API KEY 为敏感信息，请妥善保管，不要分享给他人。</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bottom-tab-bar">
+                <a href="knowledge.html" class="tab-item">
+                    <i class="fas fa-book"></i>
+                    <span>知识点</span>
+                </a>
+                <a href="exercises.html" class="tab-item">
+                    <i class="fas fa-tasks"></i>
+                    <span>习题</span>
+                </a>
+                <a href="discussion.html" class="tab-item">
+                    <i class="fas fa-comments"></i>
+                    <span>讨论</span>
+                </a>
+                <a href="exam-papers.html" class="tab-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span>真题</span>
+                </a>
+                <a href="profile.html" class="tab-item active">
+                    <i class="fas fa-user"></i>
+                    <span>我的</span>
+                </a>
+            </div>
+            
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+    
+    <script>
+        // 显示温度值
+        const temperatureSlider = document.getElementById('temperature');
+        const temperatureValue = document.getElementById('temperature-value');
+        
+        temperatureSlider.addEventListener('input', function() {
+            temperatureValue.textContent = this.value;
+        });
+    </script>
+</body>
+</html> 
